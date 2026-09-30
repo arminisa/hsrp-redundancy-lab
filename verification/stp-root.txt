@@ -1,0 +1,131 @@
+SW-D1#show spanning-tree vlan 10
+
+VLAN0010
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24586
+             Address     0c35.c7cb.0000
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    24586  (priority 24576 sys-id-ext 10)
+             Address     0c35.c7cb.0000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi0/2               Desg FWD 4         128.3    P2p 
+Gi0/3               Desg FWD 4         128.4    P2p 
+Po1                 Desg FWD 3         128.65   P2p 
+
+
+SW-D1#show spanning-tree vlan 20
+
+VLAN0020
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24596
+             Address     0c21.1b01.0000
+             Cost        3
+             Port        65 (Port-channel1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32788  (priority 32768 sys-id-ext 20)
+             Address     0c35.c7cb.0000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi0/2               Desg FWD 4         128.3    P2p 
+Gi0/3               Desg FWD 4         128.4    P2p 
+Po1                 Root FWD 3         128.65   P2p 
+
+W-D2#show spanning-tree vlan 10
+
+VLAN0010
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24586
+             Address     0c35.c7cb.0000
+             Cost        3
+             Port        65 (Port-channel1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32778  (priority 32768 sys-id-ext 10)
+             Address     0c21.1b01.0000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi0/2               Desg FWD 4         128.3    P2p 
+Gi0/3               Desg FWD 4         128.4    P2p 
+Po1                 Root FWD 3         128.65   P2p 
+
+
+SW-D2#show spanning-tree vlan 20
+
+VLAN0020
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24596
+             Address     0c21.1b01.0000
+             This bridge is the root
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    24596  (priority 24576 sys-id-ext 20)
+             Address     0c21.1b01.0000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi0/2               Desg FWD 4         128.3    P2p 
+Gi0/3               Desg FWD 4         128.4    P2p 
+Po1                 Desg FWD 3         128.65   P2p 
+
+
+SW-ACC-1#show spanning-tree vlan 10
+
+VLAN0010
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24586
+             Address     0c35.c7cb.0000
+             Cost        4
+             Port        2 (GigabitEthernet0/1)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32778  (priority 32768 sys-id-ext 10)
+             Address     0cbc.137f.0000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi0/0               Altn BLK 4         128.1    P2p 
+Gi0/1               Root FWD 4         128.2    P2p 
+Gi0/2               Desg FWD 4         128.3    P2p Edge 
+
+
+SW-ACC-1#show spanning-tree vlan 20
+
+VLAN0020
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24596
+             Address     0c21.1b01.0000
+             Cost        4
+             Port        1 (GigabitEthernet0/0)
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    32788  (priority 32768 sys-id-ext 20)
+             Address     0cbc.137f.0000
+             Hello Time   2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  300 sec
+
+Interface           Role Sts Cost      Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi0/0               Root FWD 4         128.1    P2p 
+Gi0/1               Altn BLK 4         128.2    P2p 
+Gi0/3               Desg FWD 4         128.4    P2p Edge 
+
+
+
+
