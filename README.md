@@ -2,6 +2,7 @@
 
 A comprehensive CCNA/CCNP-level redundancy project covering HSRP, STP Tuning, EtherChannel, Root Guard, BPDU Guard, and Failover testing.
 
+
 ## 🎯 Project Overview
 Simulated a resilient enterprise network with redundant gateways (HSRP), load-balanced STP topology, and Layer 2 security features. The goal is to ensure zero downtime in case of link or device failure.
 
