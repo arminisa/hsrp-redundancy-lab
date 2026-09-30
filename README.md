@@ -6,7 +6,7 @@ A comprehensive CCNA/CCNP-level redundancy project covering HSRP, STP Tuning, Et
 Simulated a resilient enterprise network with redundant gateways (HSRP), load-balanced STP topology, and Layer 2 security features. The goal is to ensure zero downtime in case of link or device failure.
 
 ## 🏗️ Network Topology
-![Topology](Topology.png)
+!![Network Topology](assets/topology.png)
 
 ## 📊 VLAN & IP Scheme
 | VLAN | Name | Subnet | HSRP VIP | R1 (Active/Standby) | R2 (Active/Standby) |
