@@ -1,0 +1,33 @@
+hostname SW-Access-1
+no ip domain-lookup
+spanning-tree mode pvst
+interface Port-channel1
+ switchport trunk allowed vlan 10,20,30,40,99
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+interface GigabitEthernet0/0
+ switchport trunk allowed vlan 10,20,30,40,99
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ channel-group 1 mode passive
+interface GigabitEthernet0/1
+ switchport trunk allowed vlan 10,20,30,40,99
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+ channel-group 1 mode passive
+interface GigabitEthernet0/2
+ switchport access vlan 20
+ switchport mode access
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0050.7966.6800
+ switchport port-security
+interface GigabitEthernet0/3
+ switchport access vlan 30
+ switchport mode access
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security
