@@ -1,47 +1,20 @@
 hostname R1
-ip dhcp excluded-address 192.168.10.1
-ip dhcp excluded-address 192.168.20.1
-ip dhcp excluded-address 192.168.30.1
-ip dhcp excluded-address 192.168.40.1
-ip dhcp excluded-address 192.168.99.1
-ip dhcp pool vlan10
- network 192.168.10.0 255.255.255.0
- default-router 192.168.10.1 
- dns-server 8.8.8.8 
-ip dhcp pool vlan20
- network 192.168.20.0 255.255.255.0
- default-router 192.168.20.1 
- dns-server 8.8.8.8 
-ip dhcp pool vlan30
- network 192.168.30.0 255.255.255.0
- default-router 192.168.30.1 
- dns-server 8.8.8.8 
-ip dhcp pool vlan40
- network 192.168.40.0 255.255.255.0
- default-router 192.168.40.1 
- dns-server 8.8.8.8 
-ip dhcp pool vlan99
- network 192.168.99.0 255.255.255.0
- default-router 192.168.99.1 
- dns-server 8.8.8.8 
 no ip domain lookup
 interface Ethernet0/0
  no ip address
- shutdown 
+ shutdown
 interface GigabitEthernet0/0
+ ip address 10.0.0.1 255.255.255.252
+interface GigabitEthernet1/0
  no ip address
-interface GigabitEthernet0/0.10
+interface GigabitEthernet1/0.10
  encapsulation dot1Q 10
- ip address 192.168.10.1 255.255.255.0
-interface GigabitEthernet0/0.20
+ ip address 192.168.10.2 255.255.255.0
+ standby 10 ip 192.168.10.1
+ standby 10 priority 150
+ standby 10 preempt
+interface GigabitEthernet1/0.20
  encapsulation dot1Q 20
- ip address 192.168.20.1 255.255.255.0
-interface GigabitEthernet0/0.30
- encapsulation dot1Q 30
- ip address 192.168.30.1 255.255.255.0
-interface GigabitEthernet0/0.40
- encapsulation dot1Q 40
- ip address 192.168.40.1 255.255.255.0
-interface GigabitEthernet0/0.99
- encapsulation dot1Q 99 native
- ip address 192.168.99.1 255.255.255.0
+ ip address 192.168.20.2 255.255.255.0
+ standby 20 ip 192.168.20.1
+ standby 20 preempt
