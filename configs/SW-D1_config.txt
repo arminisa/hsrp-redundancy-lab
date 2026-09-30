@@ -1,0 +1,23 @@
+hostname SW-D1
+no ip domain-lookup
+spanning-tree vlan 10 priority 24576
+interface Port-channel1
+ switchport trunk allowed vlan 10,20
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+interface GigabitEthernet0/0
+ switchport trunk allowed vlan 10,20
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+interface GigabitEthernet0/1
+ switchport trunk allowed vlan 10,20
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+ channel-group 1 mode active
+interface GigabitEthernet0/2
+ switchport trunk allowed vlan 10,20
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+interface GigabitEthernet0/3
+ spanning-tree guard root
