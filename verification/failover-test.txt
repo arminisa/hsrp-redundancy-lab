@@ -1,0 +1,57 @@
+==========================================================
+HSRP Failover Test Results
+==========================================================
+
+Test Date: 2026-09-30
+Tester: Armin Isa
+Project: hsrp-redundancy-lab
+
+----------------------------------------------------------
+Test Scenario:
+----------------------------------------------------------
+Verify that the network remains operational when the 
+primary gateway (R1) fails.
+
+----------------------------------------------------------
+Test Procedure:
+----------------------------------------------------------
+1. Before failure, verify HSRP status on both routers:
+   - R1 is Active for VLAN 10 (Priority 150)
+   - R2 is Standby for VLAN 10 (Priority 100)
+
+2. Start a continuous ping from PC1 to PC2:
+   PC1> ping 192.168.20.10
+
+3. Simulate R1 failure by shutting down its LAN interface:
+   R1(config)# interface GigabitEthernet1/0
+   R1(config-if)# shutdown
+
+4. Observe HSRP state change and ping continuity.
+
+5. Restore R1:
+   R1(config-if)# no shutdown
+
+----------------------------------------------------------
+Expected Result:
+----------------------------------------------------------
+- R2 should transition from Standby to Active for VLAN 10
+- Ping should continue with minimal disruption
+- After R1 recovery, R1 should reclaim Active role (preempt)
+
+----------------------------------------------------------
+Actual Result:
+----------------------------------------------------------
+- R2 successfully became Active for VLAN 10.
+- Continuous ping showed at most 1-2 packet drops during 
+  the failover transition (approximately 10 seconds).
+- After R1 was restored, it reclaimed Active role due to 
+  the "standby 10 preempt" command.
+
+----------------------------------------------------------
+Conclusion:
+----------------------------------------------------------
+HSRP failover is working as designed. The network achieved 
+high availability with minimal downtime (< 10 seconds), 
+which is acceptable for enterprise environments.
+
+==========================================================
